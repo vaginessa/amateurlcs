@@ -31,7 +31,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="index" method="post">
+        <form action="index.php" method="post">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="Username" name="username">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

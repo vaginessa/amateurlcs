@@ -12,7 +12,7 @@ if($_GET['id'] == "") {
         echo $r['name'];
         echo "</h3></div>";
         echo '<div class="img">';
-        echo '<a href="index?module=teams&id=' . $r['id'] . '"><img class="img-responsive" style="border-radius:150px;" src="' . GetTeamBanner($r['id']) . '"/></a>';
+        echo '<a href="index.php?module=teams&id=' . $r['id'] . '"><img class="img-responsive" style="border-radius:150px;" src="' . GetTeamBanner($r['id']) . '"/></a>';
         echo "</div>";
         echo "</div>";
     }
@@ -234,7 +234,15 @@ if($_GET['id'] != ""){
 ?>
 <script>
     $("#btn_roster_changes").on('click',function(){
-
+		$.ajax({
+			url : './teams/roster/home.php',
+			success : function(res){
+					$("#modal").html(res);
+					$("#modal").modal('show');
+			}
+			
+			
+		})
     })
 
 

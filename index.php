@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'functions.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/functions.php';
 error_reporting(0);
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if($_POST['password'] == 'secretstuff1992'){
@@ -42,15 +42,17 @@ if($_SESSION['username']){
     <title>AmateurLCS</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/skin-black.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,af-2.0.0,b-1.0.3,b-colvis-1.0.3,b-flash-1.0.3,b-html5-1.0.3,b-print-1.0.3,cr-1.2.0,fc-3.1.0,fh-3.0.0,kt-2.0.0,r-1.0.7,rr-1.0.0,sc-1.3.0,se-1.0.1/datatables.min.css"/>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,jszip-2.5.0,pdfmake-0.1.18,dt-1.10.9,af-2.0.0,b-1.0.3,b-colvis-1.0.3,b-flash-1.0.3,b-html5-1.0.3,b-print-1.0.3,cr-1.2.0,fc-3.1.0,fh-3.0.0,kt-2.0.0,r-1.0.7,rr-1.0.0,sc-1.3.0,se-1.0.1/datatables.min.js"></script>
+    <link rel="stylesheet" href="../../plugins/datatables/media/css/jquery.dataTables_themeroller.min.css">
+    
+ 
+    <script src="../../plugins/jquery-1.10.2.min.js"></script>
+    <script src='../../plugins/datatables/media/js/jquery.dataTables.min.js'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -64,7 +66,7 @@ if($_SESSION['username']){
       <!-- Main Header -->
       <header class="main-header">
         <!-- Logo -->
-        <a href="index" class="logo">
+        <a href="index.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LCS</span>
           <!-- logo for regular state and mobile devices -->
@@ -86,17 +88,17 @@ if($_SESSION['username']){
         <section class="sidebar">
           <ul class="sidebar-menu">
             <!-- Optionally, you can add icons to the links -->
-            <li class='start <?=($module == "dashboard") ? "active" : "" ?>' ><a href="index"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-            <li class='start <?=($module == "team_management") ? "active" : "" ?>' ><a href="index?module=team_mana"><i class="fa fa-cogs"></i> <span>Team management</span></a></li>
-            <li class='start <?=($module == "teams") ? "active" : "" ?>' ><a href="index?module=teams"><i class="fa fa-users"></i> <span>Teams</span></a></li>
-            <li class='start <?=($module == "teams") ? "active" : "" ?>' ><a href="index?module=leagues"><i class="fa fa-trophy"></i> <span>Leagues</span></a></li>
+            <li class='start <?=($module == "dashboard") ? "active" : "" ?>' ><a href="index.php"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+            <li class='start <?=($module == "team_management") ? "active" : "" ?>' ><a href="index.php?module=team_mana"><i class="fa fa-cogs"></i> <span>Team management</span></a></li>
+            <li class='start <?=($module == "teams") ? "active" : "" ?>' ><a href="index.php?module=teams"><i class="fa fa-users"></i> <span>Teams</span></a></li>
+            <li class='start <?=($module == "teams") ? "active" : "" ?>' ><a href="index.php?module=leagues"><i class="fa fa-trophy"></i> <span>Leagues</span></a></li>
             <li class="treeview <?=($module == "config") ? "active" : "" ?>">
               <a href="#"><i class="fa fa-cog"></i> <span>Configuration</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li <?=($sub == "mana") ? "class='active'" : "" ?>><a href="index?module=config&sub=mana"><i class="fa fa-home"></i>Management</a></li>
-                <li <?=($sub == "users") ? "class='active'" : "" ?>><a href="index?module=config&sub=users"><i class="fa fa-user"></i>Users</a></li>
-                <li <?=($sub == "teams") ? "class='active'" : "" ?>><a href="index?module=config&sub=teams"><i class="fa fa-users"></i>Teams</a></li>
-                <li <?=($sub == "leagues") ? "class='active'" : "" ?>><a href="index?module=config&sub=leagues"><i class="fa fa-users"></i>Leagues</a></li>
+                <li <?=($sub == "mana") ? "class='active'" : "" ?>><a href="index.php?module=config&sub=mana"><i class="fa fa-home"></i>Management</a></li>
+                <li <?=($sub == "users") ? "class='active'" : "" ?>><a href="index.php?module=config&sub=users"><i class="fa fa-user"></i>Users</a></li>
+                <li <?=($sub == "teams") ? "class='active'" : "" ?>><a href="index.php?module=config&sub=teams"><i class="fa fa-users"></i>Teams</a></li>
+                <li <?=($sub == "leagues") ? "class='active'" : "" ?>><a href="index.php?module=config&sub=leagues"><i class="fa fa-users"></i>Leagues</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->
@@ -121,13 +123,13 @@ if($_SESSION['username']){
         <strong>Copyright &copy; 2015 <a href="#">AmateurLCS</a>.</strong> All rights reserved.
       </footer>
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="../../plugins/jquery-ui/jquery-ui-1.11.js"></script>
         <script>
           $.widget.bridge('uibutton', $.ui.button);
         </script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+        <script src="../../plugins/moment.min.js"></script>
         <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
         <script src="plugins/fastclick/fastclick.min.js"></script>
         <script src="dist/js/app.min.js"></script>
@@ -151,4 +153,4 @@ if($_SESSION['username']){
         </script>
   </body>
 </html>
-<?php }else { header('Location:login');}?>
+<?php }else { header('Location:login.php');}?>

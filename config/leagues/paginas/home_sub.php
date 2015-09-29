@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'functions.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/functions.php';
 $columns = array(
 "name" => array("titel" => 'Name',"width" => 30),
 "type" => array("titel" => 'Type',"width" => 20),

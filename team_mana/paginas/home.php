@@ -110,7 +110,7 @@ function CreateNewTeam(){
 ?>
 <script>
 	if("<?php echo $type;?>" > 2){
-		window.location.href= "index?module=teams&id=<?php echo GetTeamOfUser($_SESSION['user_id']);?>";
+		window.location.href= "index.php?module=teams&id=<?php echo GetTeamOfUser($_SESSION['user_id']);?>";
 	}
 </script>
 
