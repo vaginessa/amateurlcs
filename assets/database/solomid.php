@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 29 sep 2015 om 11:06
+-- Gegenereerd op: 29 sep 2015 om 11:07
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -17,368 +17,485 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databank: `amateurlcs_central`
+-- Databank: `amateurlcs_solomid`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `domains`
+-- Tabelstructuur voor tabel `leagues_config`
 --
 
-CREATE TABLE IF NOT EXISTS `domains` (
+CREATE TABLE IF NOT EXISTS `leagues_config` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
-`domain` varchar(30) NOT NULL,
-`database_user` varchar(30) NOT NULL,
-`database_password` varchar(30) NOT NULL,
-`database_db` varchar(30) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `domains`
---
-
-INSERT INTO `domains` (`id`, `domain`, `database_user`, `database_password`, `database_db`) VALUES
-(1, 'solomid', 'alcs_solomid', 'pV7si5kAnYXQk6P', 'amateurlcs_solomid');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `domains_packages`
---
-
-CREATE TABLE IF NOT EXISTS `domains_packages` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`domain` int(11) NOT NULL,
-`package` int(11) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `domains_packages`
---
-
-INSERT INTO `domains_packages` (`id`, `domain`, `package`) VALUES
-(1, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `global_account_types`
---
-
-CREATE TABLE IF NOT EXISTS `global_account_types` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`value` varchar(30) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `global_account_types`
---
-
-INSERT INTO `global_account_types` (`id`, `value`) VALUES
-(1, 'Admin'),
-(2, 'Free agent'),
-(3, 'Teammember'),
-(4, 'Analyst'),
-(5, 'Coach'),
-(6, 'Shoutcaster'),
-(7, 'Team owner');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `global_champions`
---
-
-CREATE TABLE IF NOT EXISTS `global_champions` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`champion_id` int(11) NOT NULL,
-`name` varchar(20) NOT NULL,
-`title` varchar(50) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=127 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `global_champions`
---
-
-INSERT INTO `global_champions` (`id`, `champion_id`, `name`, `title`) VALUES
-(1, 412, 'Thresh', 'the Chain Warden'),
-(2, 266, 'Aatrox', 'the Darkin Blade'),
-(3, 23, 'Tryndamere', 'the Barbarian King'),
-(4, 79, 'Gragas', 'the Rabble Rouser'),
-(5, 69, 'Cassiopeia', 'the Serpent''s Embrace'),
-(6, 78, 'Poppy', 'the Iron Ambassador'),
-(7, 13, 'Ryze', 'the Rogue Mage'),
-(8, 14, 'Sion', 'The Undead Juggernaut'),
-(9, 1, 'Annie', 'the Dark Child'),
-(10, 43, 'Karma', 'the Enlightened One'),
-(11, 111, 'Nautilus', 'the Titan of the Depths'),
-(12, 99, 'Lux', 'the Lady of Luminosity'),
-(13, 103, 'Ahri', 'the Nine-Tailed Fox'),
-(14, 2, 'Olaf', 'the Berserker'),
-(15, 112, 'Viktor', 'the Machine Herald'),
-(16, 34, 'Anivia', 'the Cryophoenix'),
-(17, 86, 'Garen', 'The Might of Demacia'),
-(18, 27, 'Singed', 'the Mad Chemist'),
-(19, 127, 'Lissandra', 'the Ice Witch'),
-(20, 57, 'Maokai', 'the Twisted Treant'),
-(21, 25, 'Morgana', 'Fallen Angel'),
-(22, 28, 'Evelynn', 'the Widowmaker'),
-(23, 105, 'Fizz', 'the Tidal Trickster'),
-(24, 238, 'Zed', 'the Master of Shadows'),
-(25, 74, 'Heimerdinger', 'the Revered Inventor'),
-(26, 68, 'Rumble', 'the Mechanized Menace'),
-(27, 82, 'Mordekaiser', 'the Master of Metal'),
-(28, 37, 'Sona', 'Maven of the Strings'),
-(29, 55, 'Katarina', 'the Sinister Blade'),
-(30, 96, 'Kog''Maw', 'the Mouth of the Abyss'),
-(31, 22, 'Ashe', 'the Frost Archer'),
-(32, 117, 'Lulu', 'the Fae Sorceress'),
-(33, 30, 'Karthus', 'the Deathsinger'),
-(34, 12, 'Alistar', 'the Minotaur'),
-(35, 122, 'Darius', 'the Hand of Noxus'),
-(36, 67, 'Vayne', 'the Night Hunter'),
-(37, 110, 'Varus', 'the Arrow of Retribution'),
-(38, 77, 'Udyr', 'the Spirit Walker'),
-(39, 126, 'Jayce', 'the Defender of Tomorrow'),
-(40, 89, 'Leona', 'the Radiant Dawn'),
-(41, 134, 'Syndra', 'the Dark Sovereign'),
-(42, 80, 'Pantheon', 'the Artisan of War'),
-(43, 121, 'Kha''Zix', 'the Voidreaver'),
-(44, 92, 'Riven', 'the Exile'),
-(45, 42, 'Corki', 'the Daring Bombardier'),
-(46, 268, 'Azir', 'the Emperor of the Sands'),
-(47, 51, 'Caitlyn', 'the Sheriff of Piltover'),
-(48, 76, 'Nidalee', 'the Bestial Huntress'),
-(49, 3, 'Galio', 'the Sentinel''s Sorrow'),
-(50, 85, 'Kennen', 'the Heart of the Tempest'),
-(51, 45, 'Veigar', 'the Tiny Master of Evil'),
-(52, 432, 'Bard', 'the Wandering Caretaker'),
-(53, 150, 'Gnar', 'the Missing Link'),
-(54, 104, 'Graves', 'the Outlaw'),
-(55, 90, 'Malzahar', 'the Prophet of the Void'),
-(56, 254, 'Vi', 'the Piltover Enforcer'),
-(57, 10, 'Kayle', 'The Judicator'),
-(58, 39, 'Irelia', 'the Will of the Blades'),
-(59, 64, 'Lee Sin', 'the Blind Monk'),
-(60, 60, 'Elise', 'The Spider Queen'),
-(61, 106, 'Volibear', 'the Thunder''s Roar'),
-(62, 20, 'Nunu', 'the Yeti Rider'),
-(63, 4, 'Twisted Fate', 'the Card Master'),
-(64, 24, 'Jax', 'Grandmaster at Arms'),
-(65, 102, 'Shyvana', 'the Half-Dragon'),
-(66, 429, 'Kalista', 'the Spear of Vengeance'),
-(67, 36, 'Dr. Mundo', 'the Madman of Zaun'),
-(68, 223, 'Tahm Kench', 'the River King'),
-(69, 63, 'Brand', 'the Burning Vengeance'),
-(70, 131, 'Diana', 'Scorn of the Moon'),
-(71, 113, 'Sejuani', 'the Winter''s Wrath'),
-(72, 8, 'Vladimir', 'the Crimson Reaper'),
-(73, 154, 'Zac', 'the Secret Weapon'),
-(74, 421, 'RekSai', 'the Void Burrower'),
-(75, 133, 'Quinn', 'Demacia''s Wings'),
-(76, 84, 'Akali', 'the Fist of Shadow'),
-(77, 18, 'Tristana', 'the Yordle Gunner'),
-(78, 120, 'Hecarim', 'the Shadow of War'),
-(79, 15, 'Sivir', 'the Battle Mistress'),
-(80, 236, 'Lucian', 'the Purifier'),
-(81, 107, 'Rengar', 'the Pridestalker'),
-(82, 19, 'Warwick', 'the Blood Hunter'),
-(83, 72, 'Skarner', 'the Crystal Vanguard'),
-(84, 54, 'Malphite', 'Shard of the Monolith'),
-(85, 157, 'Yasuo', 'the Unforgiven'),
-(86, 101, 'Xerath', 'the Magus Ascendant'),
-(87, 17, 'Teemo', 'the Swift Scout'),
-(88, 75, 'Nasus', 'the Curator of the Sands'),
-(89, 58, 'Renekton', 'the Butcher of the Sands'),
-(90, 119, 'Draven', 'the Glorious Executioner'),
-(91, 35, 'Shaco', 'the Demon Jester'),
-(92, 50, 'Swain', 'the Master Tactician'),
-(93, 115, 'Ziggs', 'the Hexplosives Expert'),
-(94, 91, 'Talon', 'the Blade''s Shadow'),
-(95, 40, 'Janna', 'the Storm''s Fury'),
-(96, 245, 'Ekko', 'the Boy Who Shattered Time'),
-(97, 61, 'Orianna', 'the Lady of Clockwork'),
-(98, 9, 'Fiddlesticks', 'the Harbinger of Doom'),
-(99, 114, 'Fiora', 'the Grand Duelist'),
-(100, 31, 'Cho''Gath', 'the Terror of the Void'),
-(101, 33, 'Rammus', 'the Armordillo'),
-(102, 7, 'LeBlanc', 'the Deceiver'),
-(103, 26, 'Zilean', 'the Chronokeeper'),
-(104, 16, 'Soraka', 'the Starchild'),
-(105, 56, 'Nocturne', 'the Eternal Nightmare'),
-(106, 222, 'Jinx', 'the Loose Cannon'),
-(107, 83, 'Yorick', 'the Gravedigger'),
-(108, 6, 'Urgot', 'the Headsman''s Pride'),
-(109, 21, 'Miss Fortune', 'the Bounty Hunter'),
-(110, 62, 'Wukong', 'the Monkey King'),
-(111, 53, 'Blitzcrank', 'the Great Steam Golem'),
-(112, 98, 'Shen', 'Eye of Twilight'),
-(113, 201, 'Braum', 'the Heart of the Freljord'),
-(114, 5, 'Xin Zhao', 'the Seneschal of Demacia'),
-(115, 29, 'Twitch', 'the Plague Rat'),
-(116, 11, 'Master Yi', 'the Wuju Bladesman'),
-(117, 44, 'Taric', 'the Gem Knight'),
-(118, 32, 'Amumu', 'the Sad Mummy'),
-(119, 41, 'Gangplank', 'the Saltwater Scourge'),
-(120, 48, 'Trundle', 'the Troll King'),
-(121, 38, 'Kassadin', 'the Void Walker'),
-(122, 161, 'VelKoz', 'the Eye of the Void'),
-(123, 143, 'Zyra', 'Rise of the Thorns'),
-(124, 267, 'Nami', 'the Tidecaller'),
-(125, 59, 'Jarvan IV', 'the Exemplar of Demacia'),
-(126, 81, 'Ezreal', 'the Prodigal Explorer');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `global_lolranks`
---
-
-CREATE TABLE IF NOT EXISTS `global_lolranks` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`value` varchar(40) NOT NULL,
-`short_value` varchar(20) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `global_lolranks`
---
-
-INSERT INTO `global_lolranks` (`id`, `value`, `short_value`) VALUES
-(1, 'Unranked', 'U'),
-(2, 'BRONZE V', 'B5'),
-(3, 'BRONZE IV', 'B4'),
-(4, 'BRONZE III', 'B3'),
-(5, 'BRONZE II', 'B2'),
-(6, 'BRONZE I', 'B1'),
-(7, 'SILVER V', 'S5'),
-(8, 'SILVER IV', 'S4'),
-(9, 'SILVER III', 'S3'),
-(10, 'SILVER II', 'S2'),
-(11, 'SILVER I', 'S1'),
-(12, 'GOLD V', 'G5'),
-(13, 'GOLD IV', 'G4'),
-(14, 'GOLD III', 'G3'),
-(15, 'GOLD II', 'G2'),
-(16, 'GOLD I', 'G1'),
-(17, 'PLATINUM V', 'P5'),
-(18, 'PLATINUM IV', 'P4'),
-(19, 'PLATINUM III', 'P3'),
-(20, 'PLATINUM II', 'P2'),
-(21, 'PLATINUM I', 'P1'),
-(22, 'DIAMOND V', 'D5'),
-(23, 'DIAMOND IV', 'D4'),
-(24, 'DIAMOND III', 'D3'),
-(25, 'DIAMOND II', 'D2'),
-(26, 'DIAMOND I', 'D1'),
-(27, 'MASTER I', 'MAS'),
-(28, 'CHALLENGER I', 'CHA');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `global_regions`
---
-
-CREATE TABLE IF NOT EXISTS `global_regions` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`region` varchar(40) NOT NULL,
-`short` varchar(15) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `global_regions`
---
-
-INSERT INTO `global_regions` (`id`, `region`, `short`) VALUES
-(1, 'Europe West', 'euw'),
-(2, 'North America', 'na');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `global_single_ele_rounds`
---
-
-CREATE TABLE IF NOT EXISTS `global_single_ele_rounds` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`team_amount` int(11) NOT NULL,
 `name` varchar(50) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Gegevens worden geëxporteerd voor tabel `global_single_ele_rounds`
---
-
-INSERT INTO `global_single_ele_rounds` (`id`, `team_amount`, `name`) VALUES
-(1, 2, 'Final'),
-(2, 4, 'Semi Final'),
-(3, 8, 'Quarter Final'),
-(4, 16, 'Round Of 16'),
-(5, 32, 'Round of 32'),
-(6, 64, 'Round of 64'),
-(7, 128, 'Round of 128');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `global_teamroles`
---
-
-CREATE TABLE IF NOT EXISTS `global_teamroles` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`value` varchar(30) NOT NULL,
+`type` int(11) NOT NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Gegevens worden geëxporteerd voor tabel `global_teamroles`
+-- Gegevens worden geëxporteerd voor tabel `leagues_config`
 --
 
-INSERT INTO `global_teamroles` (`id`, `value`) VALUES
-(1, 'Top'),
-(2, 'Jungler'),
-(3, 'Midlane'),
-(4, 'Adc'),
-(5, 'Support'),
-(6, 'Coach'),
-(7, 'Analyst'),
-(8, 'Owner'),
-(9, 'Sub 1'),
-(10, 'Sub 2'),
-(11, 'Sub 3'),
-(12, 'Sub 4'),
-(13, 'Sub 5');
+INSERT INTO `leagues_config` (`id`, `name`, `type`) VALUES
+(13, 'Round Robin Test 1', 3);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `global_tournament_types`
+-- Tabelstructuur voor tabel `leagues_config_round_robin`
 --
 
-CREATE TABLE IF NOT EXISTS `global_tournament_types` (
+CREATE TABLE IF NOT EXISTS `leagues_config_round_robin` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`league_id` int(11) NOT NULL,
+`weeks` int(11) NOT NULL,
+`current_week` int(11) NOT NULL,
+`amount_of_teams` int(11) NOT NULL,
+`match_results` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `leagues_config_round_robin`
+--
+
+INSERT INTO `leagues_config_round_robin` (`id`, `league_id`, `weeks`, `current_week`, `amount_of_teams`, `match_results`) VALUES
+(2, 13, 3, 0, 4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `leagues_config_single_ele`
+--
+
+CREATE TABLE IF NOT EXISTS `leagues_config_single_ele` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`league_id` int(11) NOT NULL,
+`current_round` int(11) NOT NULL,
+`round_progression` int(11) NOT NULL,
+`match_results` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `leagues_round_robin_teams`
+--
+
+CREATE TABLE IF NOT EXISTS `leagues_round_robin_teams` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`league_id` int(11) NOT NULL,
+`team_id` int(11) NOT NULL,
+`points` int(11) NOT NULL,
+`games_won` int(11) NOT NULL,
+`games_lost` int(11) NOT NULL,
+`games_played` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `leagues_round_robin_teams`
+--
+
+INSERT INTO `leagues_round_robin_teams` (`id`, `league_id`, `team_id`, `points`, `games_won`, `games_lost`, `games_played`) VALUES
+(7, 13, 21, 0, 0, 0, 0),
+(8, 13, 22, 0, 0, 0, 0),
+(9, 13, 23, 0, 0, 0, 0),
+(10, 13, 24, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `leagues_single_ele_teams`
+--
+
+CREATE TABLE IF NOT EXISTS `leagues_single_ele_teams` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`league_id` int(11) NOT NULL,
+`team_id` int(11) NOT NULL,
+`defeated` int(11) NOT NULL,
+`current_round` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `leagues_single_ele_teams`
+--
+
+INSERT INTO `leagues_single_ele_teams` (`id`, `league_id`, `team_id`, `defeated`, `current_round`) VALUES
+(126, 9, 54654654, 0, 5),
+(127, 9, 7888, 0, 5),
+(128, 9, 7777, 0, 5),
+(129, 9, 55545, 0, 5),
+(130, 9, 199898, 0, 5),
+(131, 9, 78987987, 0, 5),
+(132, 9, 31231231, 0, 5),
+(133, 9, 6666699, 0, 5),
+(134, 9, 787, 0, 5),
+(135, 9, 39343, 0, 5),
+(136, 9, 777, 0, 5),
+(137, 9, 1234, 0, 5),
+(138, 9, 4567, 0, 5),
+(139, 9, 123, 0, 5),
+(140, 9, 68586, 0, 5),
+(141, 9, 1235, 0, 5),
+(142, 9, 352524, 0, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `management`
+--
+
+CREATE TABLE IF NOT EXISTS `management` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`field` varchar(40) NOT NULL,
+`value` varchar(20) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `management`
+--
+
+INSERT INTO `management` (`id`, `field`, `value`) VALUES
+(1, 'registration_open', '0'),
+(2, 'enable_login', '1'),
+(3, 'region_select', '1'),
+(4, 'team_kicks', '3'),
+(5, 'change_teamname', '1'),
+(6, 'team_creation', '1'),
+(7, 'pass_captainship', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `matches_round_robin`
+--
+
+CREATE TABLE IF NOT EXISTS `matches_round_robin` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`league_id` int(11) NOT NULL,
+`week_id` int(11) NOT NULL,
+`team_1` int(11) NOT NULL,
+`team_2` int(11) NOT NULL,
+`winning_team` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `matches_round_robin`
+--
+
+INSERT INTO `matches_round_robin` (`id`, `league_id`, `week_id`, `team_1`, `team_2`, `winning_team`) VALUES
+(16, 13, 1, 21, 23, 0),
+(17, 13, 1, 22, 24, 0),
+(18, 13, 2, 21, 22, 0),
+(19, 13, 2, 24, 23, 0),
+(20, 13, 3, 21, 24, 0),
+(21, 13, 3, 23, 22, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `matches_single_ele`
+--
+
+CREATE TABLE IF NOT EXISTS `matches_single_ele` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`league_id` int(11) NOT NULL,
+`round_id` int(11) NOT NULL,
+`team_1` int(11) NOT NULL,
+`team_2` int(11) NOT NULL,
+`winning_team` int(11) NOT NULL,
+`position` int(11) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=852 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `matches_single_ele`
+--
+
+INSERT INTO `matches_single_ele` (`id`, `league_id`, `round_id`, `team_1`, `team_2`, `winning_team`, `position`) VALUES
+(795, 9, 5, 0, 0, 0, 16),
+(796, 9, 4, 0, 0, 0, 1),
+(797, 9, 4, 0, 0, 0, 2),
+(798, 9, 4, 0, 0, 0, 3),
+(799, 9, 4, 0, 0, 0, 4),
+(800, 9, 4, 0, 0, 0, 5),
+(801, 9, 4, 0, 0, 0, 6),
+(802, 9, 4, 0, 0, 0, 7),
+(803, 9, 4, 0, 0, 0, 8),
+(804, 9, 3, 0, 0, 0, 1),
+(805, 9, 3, 0, 0, 0, 2),
+(806, 9, 3, 0, 0, 0, 3),
+(807, 9, 3, 0, 0, 0, 4),
+(808, 9, 2, 0, 0, 0, 1),
+(809, 9, 2, 0, 0, 0, 2),
+(810, 9, 1, 0, 0, 0, 1),
+(811, 9, 6, 19, 20, 0, 1),
+(812, 9, 6, 21, 122, 0, 2),
+(813, 9, 6, 222, 2222, 0, 3),
+(814, 9, 6, 22222, 333, 0, 4),
+(815, 9, 6, 3333, 19333, 0, 5),
+(816, 9, 6, 2066, 19787, 0, 6),
+(817, 9, 6, 989, 7897897, 0, 7),
+(818, 9, 6, 56465, 99999, 0, 8),
+(819, 9, 6, 98989, 98798798, 0, 9),
+(820, 9, 6, 666, 7878, 0, 10),
+(821, 9, 5, 1965646, 778787, 0, 1),
+(822, 9, 5, 44545, 888, 0, 2),
+(823, 9, 5, 197777, 54654654, 0, 3),
+(824, 9, 5, 7888, 7777, 0, 4),
+(825, 9, 5, 55545, 199898, 0, 5),
+(826, 9, 5, 78987987, 31231231, 0, 6),
+(827, 9, 5, 6666699, 787, 0, 7),
+(828, 9, 5, 39343, 777, 0, 8),
+(829, 9, 5, 1234, 4567, 0, 9),
+(830, 9, 5, 123, 68586, 0, 10),
+(831, 9, 5, 1235, 352524, 0, 11),
+(832, 9, 5, 0, 0, 0, 12),
+(833, 9, 5, 0, 0, 0, 13),
+(834, 9, 5, 0, 0, 0, 14),
+(835, 9, 5, 0, 0, 0, 15),
+(836, 9, 5, 0, 0, 0, 16),
+(837, 9, 4, 0, 0, 0, 1),
+(838, 9, 4, 0, 0, 0, 2),
+(839, 9, 4, 0, 0, 0, 3),
+(840, 9, 4, 0, 0, 0, 4),
+(841, 9, 4, 0, 0, 0, 5),
+(842, 9, 4, 0, 0, 0, 6),
+(843, 9, 4, 0, 0, 0, 7),
+(844, 9, 4, 0, 0, 0, 8),
+(845, 9, 3, 0, 0, 0, 1),
+(846, 9, 3, 0, 0, 0, 2),
+(847, 9, 3, 0, 0, 0, 3),
+(848, 9, 3, 0, 0, 0, 4),
+(849, 9, 2, 0, 0, 0, 1),
+(850, 9, 2, 0, 0, 0, 2),
+(851, 9, 1, 0, 0, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`type` int(11) NOT NULL,
+`sender` int(11) NOT NULL,
+`receiver` int(11) NOT NULL,
+`m_title` text NOT NULL,
+`m_body` text NOT NULL,
+`send_at` datetime NOT NULL,
+`read_at` datetime NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `teams`
+--
+
+CREATE TABLE IF NOT EXISTS `teams` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `name` varchar(50) NOT NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+`tag` varchar(10) NOT NULL,
+`captain_id` int(11) NOT NULL,
+`kicks_left` tinyint(4) NOT NULL,
+PRIMARY KEY (`id`),
+UNIQUE KEY `name` (`name`,`tag`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
--- Gegevens worden geëxporteerd voor tabel `global_tournament_types`
+-- Gegevens worden geëxporteerd voor tabel `teams`
 --
 
-INSERT INTO `global_tournament_types` (`id`, `name`) VALUES
-(1, 'Single Elemination'),
-(2, 'Double Elimination'),
-(3, 'Round Robin'),
-(4, 'Swiss');
+INSERT INTO `teams` (`id`, `name`, `tag`, `captain_id`, `kicks_left`) VALUES
+(21, 'Team 1', 'T1', 1, 2),
+(22, 'Team 2 ', 'T2', 9, 2),
+(23, 'Team 3', 'T3', 10, 2),
+(24, 'Team 4', 'T4', 11, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `teams_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `teams_roles` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`team_id` int(11) NOT NULL,
+`user_id` int(11) NOT NULL,
+`role_id` int(11) NOT NULL,
+PRIMARY KEY (`id`),
+KEY `user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `teams_roles`
+--
+
+INSERT INTO `teams_roles` (`id`, `team_id`, `user_id`, `role_id`) VALUES
+(23, 21, 1, 1),
+(26, 22, 9, 1),
+(27, 23, 10, 1),
+(28, 24, 11, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`username` varchar(30) NOT NULL,
+`email` varchar(50) NOT NULL,
+`password` varchar(100) NOT NULL,
+`type` int(11) NOT NULL DEFAULT '2',
+`last_login` datetime NOT NULL,
+`data_reloaded` datetime NOT NULL,
+`role_pref` varchar(30) NOT NULL,
+PRIMARY KEY (`id`),
+UNIQUE KEY `username` (`username`,`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `type`, `last_login`, `data_reloaded`, `role_pref`) VALUES
+(1, 'Kaiprioska', 'kaiprioska@gmail.com', '$2y$10$VvumsLTfDIrhXpluaUtS/.aXVpAL4w5CDfJ9KoWQvTTYgqAJW2X9W', 3, '2015-09-29 11:06:03', '0000-00-00 00:00:00', ''),
+(9, 'metazoans98', 'vanmulders1992@gmail.com', '$2y$10$78F.IEigpv40GB4yBiGoY.sE0nMcQcGA8TQQ9z2DAZ04ICDkmZ5uy', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(10, 'Captain 3', 'ggg', '$2y$10$eINOBzWMczvDbIiFAmSpeuBgGVshYOj3nqlY1712VIY5GDn.VUDXy', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(11, 'Captain 4', 'gbdgf', '$2y$10$lPYZF9BBrvJ0uRVGDLWSzu3/PEGLZkDlvPZKjTG39qpH7RWwkcfOS', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(12, 'Solo player 1', 'vbvcbxbcvbxcv', '$2y$10$i83WrLMhCifO9kQiCHEUd.nGJz0TrWRaHypMn3/I//U1CdzKcjYOi', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(13, 'Solo player 2', 'vbcvbxcv', '$2y$10$74Fc72If4q665cgx7L8uDOTir1MCEewdoOqeDfkgyrNuqQl/cqpb.', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
+(14, 'Solo player', 'fgfgdfgdfgd', '$2y$10$rIO.C9SIwRuC9EjOM3HHq.e.aT9n87D2fmuwclkrqZcnapJRfpZou', 2, '2015-09-29 11:05:01', '0000-00-00 00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `users_champions`
+--
+
+CREATE TABLE IF NOT EXISTS `users_champions` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`user_id` int(11) NOT NULL,
+`champion_id` tinyint(4) NOT NULL,
+`games_played` smallint(6) NOT NULL,
+`games_won` smallint(6) NOT NULL,
+PRIMARY KEY (`id`),
+KEY `user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users_champions`
+--
+
+INSERT INTO `users_champions` (`id`, `user_id`, `champion_id`, `games_played`, `games_won`) VALUES
+(6, 9, 25, 69, 41),
+(7, 9, 127, 46, 32),
+(8, 9, 18, 43, 20),
+(9, 9, 127, 37, 15),
+(10, 9, 22, 36, 21),
+(11, 1, 40, 95, 53),
+(12, 1, 12, 35, 20),
+(13, 1, 127, 29, 17),
+(14, 1, 117, 28, 17),
+(15, 1, 127, 24, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `users_shoutcasters`
+--
+
+CREATE TABLE IF NOT EXISTS `users_shoutcasters` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`user_id` int(11) NOT NULL,
+`type` int(11) NOT NULL,
+`vod` varchar(100) NOT NULL,
+`days` varchar(30) NOT NULL,
+`details` text NOT NULL,
+PRIMARY KEY (`id`),
+KEY `users_shoutcasters_ibfk_1` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users_shoutcasters`
+--
+
+INSERT INTO `users_shoutcasters` (`id`, `user_id`, `type`, `vod`, `days`, `details`) VALUES
+(2, 1, 1, 'dsfdsfds', '2;4;', 'dsfdsfds');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `users_statistics`
+--
+
+CREATE TABLE IF NOT EXISTS `users_statistics` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`user_id` int(11) NOT NULL,
+`summoner_id` int(11) NOT NULL,
+`games_played` smallint(6) NOT NULL,
+`games_won` smallint(6) NOT NULL,
+`rank_solo` tinyint(4) NOT NULL,
+`rank_v5` tinyint(4) NOT NULL,
+`rank_v3` tinyint(4) NOT NULL,
+PRIMARY KEY (`id`),
+UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users_statistics`
+--
+
+INSERT INTO `users_statistics` (`id`, `user_id`, `summoner_id`, `games_played`, `games_won`, `rank_solo`, `rank_v5`, `rank_v3`) VALUES
+(1, 1, 44338650, 392, 208, 18, 7, 13),
+(4, 9, 61712877, 298, 156, 21, 0, 0),
+(5, 10, 0, 0, 0, 0, 0, 0),
+(6, 11, 0, 0, 0, 0, 0, 0),
+(7, 12, 0, 0, 0, 0, 0, 0),
+(8, 13, 0, 0, 0, 0, 0, 0),
+(9, 14, 0, 0, 0, 0, 0, 0);
+
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `teams_roles`
+--
+ALTER TABLE `teams_roles`
+ADD CONSTRAINT `teams_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+ADD CONSTRAINT `teams_roles_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Beperkingen voor tabel `users_champions`
+--
+ALTER TABLE `users_champions`
+ADD CONSTRAINT `users_champions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+ADD CONSTRAINT `users_champions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Beperkingen voor tabel `users_shoutcasters`
+--
+ALTER TABLE `users_shoutcasters`
+ADD CONSTRAINT `users_shoutcasters_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Beperkingen voor tabel `users_statistics`
+--
+ALTER TABLE `users_statistics`
+ADD CONSTRAINT `users_statistics_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+ADD CONSTRAINT `users_statistics_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
